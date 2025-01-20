@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/styles.css --watch"
+    "start": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/styles.css --watch"
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
