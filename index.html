@@ -17,51 +17,57 @@
       <!-- Input for power -->
       <div class="m-6 bg-stone-950/30 p-10 sm:px-16 sm:py-8">
         <h2>Power Calculations</h2>
-        <label for="fixed-charge">Fixed daily charge total:</label>
+        <label for="fixed-charge" class="mr-6">Fixed daily charge total:</label>
         <input
           type="number"
           id="fixed-charge"
-          class="w-[200px] rounded border p-2"
+          class="w-[200px] rounded border p-1"
           placeholder="Enter fixed charge"
         />
         <br />
         <br />
 
-        <label for="variable-charge">Variable charge discounted:</label>
+        <label for="variable-charge" class="mr-6"
+          >Variable charge discounted:</label
+        >
         <input
           type="number"
           id="variable-charge"
-          class="w-[200px] rounded border p-2"
+          class="w-[200px] rounded border p-1"
           placeholder="Enter variable charge"
         />
         <br />
         <br />
 
-        <label for="total-kwh">Total power usage kWh:</label>
+        <label for="total-kwh" class="mr-6">Total power usage kWh:</label>
         <input
           type="number"
           id="total-kwh"
-          class="w-[200px] rounded border p-2"
+          class="w-[200px] rounded border p-1"
           placeholder="Enter total kWh"
         />
         <br />
         <br />
 
-        <label for="back-house-kwh">Back house power usage kWh:</label>
+        <label for="back-house-kwh" class="mr-6"
+          >Back house power usage kWh:</label
+        >
         <input
           type="number"
           id="back-house-kwh"
-          class="w-[200px] rounded border p-2"
+          class="w-[200px] rounded border p-1"
           placeholder="Enter back house kWh"
         />
         <br />
         <br />
 
-        <label for="front-house-kwh">Front house power usage kWh:</label>
+        <label for="front-house-kwh" class="mr-6"
+          >Front house power usage kWh:</label
+        >
         <input
           type="number"
           id="front-house-kwh"
-          class="w-[200px] rounded border p-2"
+          class="w-[200px] rounded border p-1"
           placeholder="Enter front house kWh"
         />
         <br />
@@ -69,71 +75,83 @@
 
         <button
           id="calculate-btn"
-          class="mt-4 rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+          class="mt-4 rounded bg-red-600 px-4 py-2 text-white hover:bg-red-500"
         >
           Calculate
         </button>
+        <button
+          id="power-clear-btn"
+          class="rounded bg-red-600 px-4 py-2 text-white hover:bg-red-500"
+        >
+          Clear
+        </button>
       </div>
       <!-- Input for water -->
-      <div class="m-6 bg-stone-950/30 p-10 sm:px-16 sm:py-8">
+      <div class="m-6 bg-stone-950/30 p-10 sm:px-16 sm:py-8" class="mr-6">
         <h2>Water Calculations</h2>
-        <label for="total-water">Total water use kL:</label>
+        <label for="total-water" class="mr-6">Total water use kL:</label>
         <input
           type="number"
           id="total-water"
-          class="w-[200px] rounded border p-2"
+          class="w-[200px] rounded border p-1"
           placeholder="Enter total water use"
         />
         <br />
         <br />
 
-        <label for="total-wastewater">Total wastewater kL:</label>
+        <label for="total-wastewater" class="mr-6">Total wastewater kL:</label>
         <input
           type="number"
           id="total-wastewater"
-          class="w-[200px] rounded border p-2"
+          class="w-[200px] rounded border p-1"
           placeholder="Enter total wastewater"
         />
         <br />
         <br />
 
-        <label for="water-unit-rate">Unit rate for water ($/kL):</label>
+        <label for="water-unit-rate" class="mr-6"
+          >Unit rate for water ($/kL):</label
+        >
         <input
           type="number"
           id="water-unit-rate"
-          class="w-[200px] rounded border p-2"
+          class="w-[200px] rounded border p-1"
           placeholder="Enter water unit rate"
         />
         <br />
         <br />
 
-        <label for="wastewater-unit-rate"
+        <label for="wastewater-unit-rate" class="mr-6"
           >Unit rate for wastewater ($/kL):</label
         >
         <input
           type="number"
           id="wastewater-unit-rate"
-          class="w-[200px] rounded border p-2"
+          class="w-[200px] rounded border p-1"
           placeholder="Enter wastewater unit rate"
         />
         <br />
         <br />
 
-        <label for="back-house-water">Back house water use kL:</label>
+        <label for="back-house-water" class="mr-6"
+          >Back house water use kL:</label
+        >
         <input
           type="number"
           id="back-house-water"
-          class="w-[200px] rounded border p-2"
+          class="w-[200px] rounded border p-1"
           placeholder="Enter back house water use"
         />
         <br />
         <br />
 
-        <label for="front-house-water">Front house water use kL:</label>
+        <label for="front-house-water" class="mr-6"
+          >Front house water use kL:</label
+        >
         <input
           type="number"
           id="front-house-water"
-          class="w-[200px] rounded border p-2"
+          class="w-[200px] rounded border p-1"
           placeholder="Enter front house water use"
         />
         <br />
@@ -141,9 +159,15 @@
 
         <button
           id="water-calculate-btn"
-          class="mt-4 rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+          class="mt-4 rounded bg-red-600 px-4 py-2 text-white hover:bg-red-500"
         >
           Calculate
+        </button>
+        <button
+          id="water-clear-btn"
+          class="rounded bg-red-600 px-4 py-2 text-white hover:bg-red-500"
+        >
+          Clear
         </button>
       </div>
     </div>
