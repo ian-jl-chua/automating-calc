@@ -62,12 +62,12 @@
         <br />
 
         <p>Front house power usage kWh:</p>
-        <span data-key="fh-power">solved</span>
+        <span data-key="fh-power">__</span>
         <br />
         <br />
 
         <button
-          id="calculate-btn"
+          id="power-calculate-btn"
           class="mt-4 rounded bg-red-600 px-4 py-2 text-white hover:bg-red-500"
         >
           Calculate
@@ -80,13 +80,13 @@
         </button>
       </div>
       <!-- Input for water -->
-      <!-- <div class="m-6 bg-stone-950/30 p-10 sm:px-16 sm:py-8">
+      <div class="m-6 bg-stone-950/30 p-10 sm:px-16 sm:py-8">
         <h2>Water Calculations</h2>
         <label for="total-water" class="mr-6">Total water use kL:</label>
         <input
           type="number"
           id="total-water"
-          class="w-[200px] rounded border p-1"
+          class="w-[200px] rounded border p-1 text-neutral-900"
           placeholder="Enter total water use"
         />
         <br />
@@ -96,7 +96,7 @@
         <input
           type="number"
           id="total-wastewater"
-          class="w-[200px] rounded border p-1"
+          class="w-[200px] rounded border p-1 text-neutral-900"
           placeholder="Enter total wastewater"
         />
         <br />
@@ -108,7 +108,7 @@
         <input
           type="number"
           id="water-unit-rate"
-          class="w-[200px] rounded border p-1"
+          class="w-[200px] rounded border p-1 text-neutral-900"
           placeholder="Enter water unit rate"
         />
         <br />
@@ -120,33 +120,25 @@
         <input
           type="number"
           id="wastewater-unit-rate"
-          class="w-[200px] rounded border p-1"
+          class="w-[200px] rounded border p-1 text-neutral-900"
           placeholder="Enter wastewater unit rate"
         />
         <br />
         <br />
 
-        <label for="back-house-water" class="mr-6"
-          >Back house water use kL:</label
-        >
+        <label for="bh-water" class="mr-6">Back house water use kL:</label>
         <input
           type="number"
           id="back-house-water"
-          class="w-[200px] rounded border p-1"
+          class="w-[200px] rounded border p-1 text-neutral-900"
           placeholder="Enter back house water use"
         />
         <br />
         <br />
 
-        <label for="front-house-water" class="mr-6"
-          >Front house water use kL:</label
-        >
-        <input
-          type="number"
-          id="front-house-water"
-          class="w-[200px] rounded border p-1"
-          placeholder="Enter front house water use"
-        />
+        <p>Front house water use kL:</p>
+        <span data-key="fh-water">__</span>
+
         <br />
         <br />
 
@@ -162,7 +154,7 @@
         >
           Clear
         </button>
-      </div> -->
+      </div>
     </div>
     <div class="flex flex-col md:grid md:grid-cols-2">
       <!-- Email for power -->
@@ -174,12 +166,12 @@
 
         <p>
           Fixed daily charge is halved between the front and back, so they each
-          come to &#36;<span data-key="fixed-charge-halved">solved</span>
+          come to &#36;<span data-key="fixed-charge-halved">__</span>
         </p>
         <p>
           Variable charge was discounted and the total is &#36;<span
             data-key="variable-charge"
-            >solved</span
+            >__</span
           >
         </p>
         <br />
@@ -187,30 +179,30 @@
         <p>
           Back house would pay a fixed of &#36;<span
             data-key="fixed-charge-halved"
-            >solved</span
+            >__</span
           >
         </p>
         <p>
           Back house variable charge with discount applied is &#36;<span
             data-key="variable-charge"
-            >solved</span
+            >__</span
           >
-          x &#40;<span data-key="bh-power">solved</span>kWh&#47;<span
+          x &#40;<span data-key="bh-power">__</span>kWh&#47;<span
             data-key="total-power-used"
-            >solved</span
+            >__</span
           >kWh&#41;&#37; &#61; &#36;<span data-key="bh-variable-charge"
-            >solved</span
+            >__</span
           >
         </p>
         <p>
           Back house GST is &#40;&#36;<span data-key="fixed-charge-halved"
-            >solved</span
-          >&#43;&#36;<span data-key="bh-variable-charge">solved</span>&#41; x
-          15&#37; &#61; &#36;<span data-key="bh-gst">solved</span>
+            >__</span
+          >&#43;&#36;<span data-key="bh-variable-charge">__</span>&#41; x
+          15&#37; &#61; &#36;<span data-key="bh-gst">__</span>
         </p>
         <p>
           Total for back house: &#36;<span data-key="bh-total-power-payment"
-            >solved</span
+            >__</span
           >
         </p>
         <br />
@@ -218,31 +210,28 @@
         <p>
           Front house would pay a fixed of &#36;<span
             data-key="fixed-charge-halved"
-            >solved</span
+            >__</span
           >
         </p>
         <p>
           Front house variable charge with discount applied is &#36;<span
             data-key="variable-charge"
-            >solved</span
+            >__</span
           >
-          x &#40;<span data-key="fh-power">solved</span>kWh&#47;<span
+          x &#40;<span data-key="fh-power">__</span>kWh&#47;<span
             data-key="total-power-used"
-            >solved</span
-          >kWh&#41;&#37;&#61; &#36;<span data-key="fh-variable-charge"
-            >solved</span
-          >
+            >__</span
+          >kWh&#41;&#37;&#61; &#36;<span data-key="fh-variable-charge">__</span>
         </p>
         <p id="front-house-gst-result">
           Front house GST is &#40;&#36;<span data-key="fixed-charge-halved"
-            >solved</span
-          >&#43;&#36;<span data-key="fh-variable-charge">solved</span>&#41; x
-          15&#37; &#61; &#36;<span data-key="fh-gst">solved</span>
+            >__</span
+          >&#43;&#36;<span data-key="fh-variable-charge">__</span>&#41; x
+          15&#37; &#61; &#36;<span data-key="fh-gst">__</span>
         </p>
         <p id="front-house-total-power">
-          Total for front house: &#36;<span data-key="fh-total-power-payment"
-            >solved</span
-          >
+          Total for front house:
+          <u> &#36;<span data-key="fh-total-power-payment">__</span></u>
         </p>
         <br />
         <p>Thank You</p>
@@ -250,40 +239,66 @@
         <p>Ian</p>
       </div>
       <!-- Email for water -->
-      <!-- <div class="m-6 bg-stone-950/30 p-10 sm:px-16 sm:py-8">
+      <div class="m-6 bg-stone-950/30 p-10 sm:px-16 sm:py-8">
         <p>Good morning Obayd</p>
         <br />
         <p>Here are the breakdown calculations and the bill for Water Care:</p>
         <br />
 
-        <p id="total-water-result">
-          Total water use is ___ kL, wastewater is ___ kL
+        <p>
+          Total water use is <span data-key="total-water">__</span>kL,
+          wastewater is <span data-key="total-waste-water">__</span>kL
         </p>
         <br />
 
-        <p id="back-house-water-result">
-          Back house water: ___ kL rate at &#36;___/kL = &#36;___
+        <p>
+          Back house water <span data-key="bh-water">__</span>kL rate at
+          &#36;<span data-key="water-rate">__</span>/kL = &#36;<span
+            data-key="bh-water-rate"
+            >__</span
+          >
         </p>
-        <p id="back-house-wastewater-result">
-          Back house wastewater: ___% of ___ kL at rate of &#36;___/kL =
-          &#36;___
+        <p>
+          Back house wastewater is
+          <span data-key="bh-waste-percent">__</span>% of
+          <span data-key="total-waste-water">__</span>kL at rate of &#36;<span
+            data-key="waste-water-rate"
+            >__</span
+          >/kL = &#36;<span data-key="bh-waste-rate">__</span>
         </p>
-        <p id="back-house-total-water">Total pay for Back house: &#36;___</p>
+        <p>
+          Total pay for Back house: &#36;<span data-key="bh-total-water-payment"
+            >__</span
+          >
+        </p>
         <br />
 
-        <p id="front-house-water-result">
-          Front house water: ___ kL rate at &#36;___/kL = &#36;___
+        <p>
+          Front house water <span data-key="fh-water">__</span>kL rate at
+          &#36;<span data-key="water-rate">__</span>/kL = &#36;<span
+            data-key="fh-water-rate"
+            >__</span
+          >
         </p>
-        <p id="front-house-wastewater-result">
-          Front house wastewater: ___% of ___ kL at rate of &#36;___/kL =
-          &#36;___
+        <p>
+          Front house wastewater is
+          <span data-key="fh-waste-percent">__</span>% of
+          <span data-key="total-waste-water">__</span>kL at rate of &#36;<span
+            data-key="waste-water-rate"
+            >__</span
+          >/kL = &#36;<span data-key="fh-waste-rate">__</span>
         </p>
-        <p id="front-house-total-water">Total pay for Front house: &#36;___</p>
+        <p>
+          Total pay for Front house: &#36;<span
+            data-key="fh-total-water-payment"
+            >__</span
+          >
+        </p>
         <br />
         <p>Thank You</p>
         <p>Kind Regards</p>
         <p>Ian</p>
-      </div> -->
+      </div>
     </div>
   </body>
 </html>
