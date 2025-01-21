@@ -89,11 +89,11 @@ document.getElementById("water-calculate-btn").addEventListener("click", functio
 
   // document.getElementById("back-house-water-result").textContent = `Back house water: ${backWater.toFixed(2)} kL rate at $${waterRate.toFixed(2)}/kL = $${backWaterCharge.toFixed(2)}`;
   // document.getElementById("back-house-wastewater-result").textContent = `Back house wastewater: ${(backWastewaterPercentage * 100).toFixed(2)}% of ${totalWastewater.toFixed(2)} kL at rate of $${wastewaterRate.toFixed(2)}/kL = $${backWastewaterCharge.toFixed(2)}`;
-  // document.getElementById("back-house-total-result").textContent = `Total pay for Back house: $${backTotal.toFixed(2)}`;
+  // document.getElementById("back-house-total-water").textContent = `Total pay for Back house: $${backTotal.toFixed(2)}`;
 
   // document.getElementById("front-house-water-result").textContent = `Front house water: ${frontWater.toFixed(2)} kL rate at $${waterRate.toFixed(2)}/kL = $${frontWaterCharge.toFixed(2)}`;
   // document.getElementById("front-house-wastewater-result").textContent = `Front house wastewater: ${(frontWastewaterPercentage * 100).toFixed(2)}% of ${totalWastewater.toFixed(2)} kL at rate of $${wastewaterRate.toFixed(2)}/kL = $${frontWastewaterCharge.toFixed(2)}`;
-  // document.getElementById("front-house-total-result").textContent = `Total pay for Front house: $${frontTotal.toFixed(2)}`;
+  // document.getElementById("front-house-total-water").textContent = `Total pay for Front house: $${frontTotal.toFixed(2)}`;
 
   // TO BE REVISED ^
 });

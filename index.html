@@ -87,7 +87,7 @@
         </button>
       </div>
       <!-- Input for water -->
-      <div class="m-6 bg-stone-950/30 p-10 sm:px-16 sm:py-8">
+      <!-- <div class="m-6 bg-stone-950/30 p-10 sm:px-16 sm:py-8">
         <h2>Water Calculations</h2>
         <label for="total-water" class="mr-6">Total water use kL:</label>
         <input
@@ -169,7 +169,7 @@
         >
           Clear
         </button>
-      </div>
+      </div> -->
     </div>
     <div class="flex flex-col md:grid md:grid-cols-2">
       <!-- Email for power -->
@@ -179,34 +179,58 @@
         <p>Here are the calculations for the power usage:</p>
         <br />
 
-        <p id="fixed-charge-result">
+        <p>
           Fixed daily charge is halved between the front and back, so they each
-          come to &#36;___
+          come to &#36;<span data-key="fixed-charge-halved">solved</span>
         </p>
-        <p id="variable-charge-result">
-          Variable charge was discounted and the total is &#36;___
+        <p>
+          Variable charge was discounted and the total is &#36;<span
+            data-key="variable-charge"
+            >solved</span
+          >
         </p>
         <br />
 
-        <p id="back-house-fixed-result">
-          Back house would pay a fixed of &#36;___
+        <p>
+          Back house would pay a fixed of &#36;<span
+            data-key="fixed-charge-halved"
+            >solved</span
+          >
         </p>
-        <p id="back-house-variable-result">
-          Back house variable charge with discount applied is &#36;___ x
-          &#40;__kWh&#47;___kWh&#41;&#37; &#61; &#36;___
+        <p>
+          Back house variable charge with discount applied is &#36;<span
+            data-key="variable-charge"
+            >solved</span
+          >
+          x &#40;<span data-key="back-house-power">solved</span>kWh&#47;<span
+            data-key="total-power-used"
+            >solved</span
+          >kWh&#41;&#37; &#61; &#36;<span data-key="bh-variable-charge"
+            >solved</span
+          >
         </p>
         <p id="back-house-gst-result">
-          Back house GST is &#40;&#36;___+&#36;___&#41; x 15&#37; &#61; &#36;___
+          Back house GST is &#40;&#36;<span data-key="fixed-charge-halved"
+            >solved</span
+          >+&#36;<span data-key="bh-variable-charge">solved</span>&#41; x
+          15&#37; &#61; &#36;<span data-key="bh-gst">solved</span>
         </p>
-        <p id="back-house-total-power">Total for back house: &#36;___</p>
+        <p id="back-house-total-power">
+          Total for back house: &#36;<span data-key="bh-total-power-payment"
+            >solved</span
+          >
+        </p>
         <br />
 
         <p id="front-house-fixed-result">
           Front house would pay a fixed of &#36;___
         </p>
         <p id="front-house-variable-result">
-          Front house variable charge with discount applied is &#36;___ x
-          &#40;___kWh&#47;___kWh&#41;&#37;&#61; &#36;___
+          Front house variable charge with discount applied is &#36;<span
+            data-key="variable-charge"
+            >solved</span
+          >
+          x &#40;___kWh&#47;___kWh&#41;&#37;&#61; &#36;___
         </p>
         <p id="front-house-gst-result">
           Front house GST is &#40;&#36;___+&#36;___&#41; x 15&#37; &#61;
@@ -219,7 +243,7 @@
         <p>Ian</p>
       </div>
       <!-- Email for water -->
-      <div class="m-6 bg-stone-950/30 p-10 sm:px-16 sm:py-8">
+      <!-- <div class="m-6 bg-stone-950/30 p-10 sm:px-16 sm:py-8">
         <p>Good morning Obayd</p>
         <br />
         <p>Here are the breakdown calculations and the bill for Water Care:</p>
@@ -252,7 +276,7 @@
         <p>Thank You</p>
         <p>Kind Regards</p>
         <p>Ian</p>
-      </div>
+      </div> -->
     </div>
   </body>
 </html>
