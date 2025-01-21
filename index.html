@@ -21,7 +21,7 @@
         <input
           type="number"
           id="fixed-charge"
-          class="w-[200px] rounded border p-1"
+          class="w-[200px] rounded border p-1 text-neutral-900"
           placeholder="Enter fixed charge"
         />
         <br />
@@ -33,7 +33,7 @@
         <input
           type="number"
           id="variable-charge"
-          class="w-[200px] rounded border p-1"
+          class="w-[200px] rounded border p-1 text-neutral-900"
           placeholder="Enter variable charge"
         />
         <br />
@@ -43,7 +43,7 @@
         <input
           type="number"
           id="total-kwh"
-          class="w-[200px] rounded border p-1"
+          class="w-[200px] rounded border p-1 text-neutral-900"
           placeholder="Enter total kWh"
         />
         <br />
@@ -55,21 +55,14 @@
         <input
           type="number"
           id="back-house-kwh"
-          class="w-[200px] rounded border p-1"
+          class="w-[200px] rounded border p-1 text-neutral-900"
           placeholder="Enter back house kWh"
         />
         <br />
         <br />
 
-        <label for="front-house-kwh" class="mr-6"
-          >Front house power usage kWh:</label
-        >
-        <input
-          type="number"
-          id="front-house-kwh"
-          class="w-[200px] rounded border p-1"
-          placeholder="Enter front house kWh"
-        />
+        <p>Front house power usage kWh:</p>
+        <span data-key="fh-power">solved</span>
         <br />
         <br />
 
@@ -202,41 +195,55 @@
             data-key="variable-charge"
             >solved</span
           >
-          x &#40;<span data-key="back-house-power">solved</span>kWh&#47;<span
+          x &#40;<span data-key="bh-power">solved</span>kWh&#47;<span
             data-key="total-power-used"
             >solved</span
           >kWh&#41;&#37; &#61; &#36;<span data-key="bh-variable-charge"
             >solved</span
           >
         </p>
-        <p id="back-house-gst-result">
+        <p>
           Back house GST is &#40;&#36;<span data-key="fixed-charge-halved"
             >solved</span
-          >+&#36;<span data-key="bh-variable-charge">solved</span>&#41; x
+          >&#43;&#36;<span data-key="bh-variable-charge">solved</span>&#41; x
           15&#37; &#61; &#36;<span data-key="bh-gst">solved</span>
         </p>
-        <p id="back-house-total-power">
+        <p>
           Total for back house: &#36;<span data-key="bh-total-power-payment"
             >solved</span
           >
         </p>
         <br />
 
-        <p id="front-house-fixed-result">
-          Front house would pay a fixed of &#36;___
+        <p>
+          Front house would pay a fixed of &#36;<span
+            data-key="fixed-charge-halved"
+            >solved</span
+          >
         </p>
-        <p id="front-house-variable-result">
+        <p>
           Front house variable charge with discount applied is &#36;<span
             data-key="variable-charge"
             >solved</span
           >
-          x &#40;___kWh&#47;___kWh&#41;&#37;&#61; &#36;___
+          x &#40;<span data-key="fh-power">solved</span>kWh&#47;<span
+            data-key="total-power-used"
+            >solved</span
+          >kWh&#41;&#37;&#61; &#36;<span data-key="fh-variable-charge"
+            >solved</span
+          >
         </p>
         <p id="front-house-gst-result">
-          Front house GST is &#40;&#36;___+&#36;___&#41; x 15&#37; &#61;
-          &#36;___
+          Front house GST is &#40;&#36;<span data-key="fixed-charge-halved"
+            >solved</span
+          >&#43;&#36;<span data-key="fh-variable-charge">solved</span>&#41; x
+          15&#37; &#61; &#36;<span data-key="fh-gst">solved</span>
         </p>
-        <p id="front-house-total-power">Total for front house: &#36;___</p>
+        <p id="front-house-total-power">
+          Total for front house: &#36;<span data-key="fh-total-power-payment"
+            >solved</span
+          >
+        </p>
         <br />
         <p>Thank You</p>
         <p>Kind Regards</p>
