@@ -144,3 +144,21 @@ document
 document
   .getElementById('water-clear-btn')
   .addEventListener('click', clearWaterInputs)
+
+// function copyPowerEmail() {
+//   const textToCopy = document.getElementById('copy-power-email')
+
+//   // Copy to clipboard
+//   navigator.clipboard.writeText(textToCopy).then(
+//     () => {
+//       alert('Copied')
+//     },
+//     (err) => {
+//       console.error('Failed to copy: ', err)
+//     },
+//   )
+// }
+
+// document
+//   .getElementById('copy-btn-power')
+//   .addEventListener('click', copyPowerEmail)
