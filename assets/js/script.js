@@ -1,18 +1,6 @@
-// ///////// POWER CALCULATIONS ////////////////////////////////////////////////////////////////////
-// Function to update all elements with the same data-key
-function updateValue(key, value) {
-  const elements = document.querySelectorAll(`[data-key="${key}"]`)
-  elements.forEach((element) => {
-    element.textContent = value ? value.toFixed(2) : '__'
-  })
-}
+import { updateValue, updateValueNonDec } from './shared.js'
 
-function updateValueNonDec(key, value) {
-  const elements = document.querySelectorAll(`[data-key="${key}"]`)
-  elements.forEach((element) => {
-    element.textContent = value ? Math.round(value) : '__'
-  })
-}
+// ///////// POWER CALCULATIONS ////////////////////////////////////////////////////////////////////
 
 // Function to clear all input fields and reset results
 function clearPowerInputs() {
@@ -56,23 +44,23 @@ function calculatePower() {
 
   // Back house calculations
   const bhVariableCharge = variableCharge * (backHouseKwh / totalKwh)
-  updateValue('bh-variable-charge', bhVariableCharge)
-  updateValueNonDec('bh-power', backHouseKwh)
   const bhGst = (fixedChargeHalved + bhVariableCharge) * 0.15
-  updateValue('bh-gst', bhGst)
   const bhTotalPowerPayment = fixedChargeHalved + bhVariableCharge + bhGst
-  updateValue('bh-total-power-payment', bhTotalPowerPayment)
 
   // Front house calculations
   const fhVariableCharge = variableCharge * (frontHouseKwh / totalKwh)
+  const fhGst = (fixedChargeHalved + fhVariableCharge) * 0.15
+  const fhTotalPowerPayment = fixedChargeHalved + fhVariableCharge + fhGst
+
+  // Update all values
+  updateValue('bh-variable-charge', bhVariableCharge)
+  updateValueNonDec('bh-power', backHouseKwh)
+  updateValue('bh-gst', bhGst)
+  updateValue('bh-total-power-payment', bhTotalPowerPayment)
   updateValue('fh-variable-charge', fhVariableCharge)
   updateValueNonDec('fh-power', frontHouseKwh)
-  const fhGst = (fixedChargeHalved + fhVariableCharge) * 0.15
   updateValue('fh-gst', fhGst)
-  const fhTotalPowerPayment = fixedChargeHalved + fhVariableCharge + fhGst
   updateValue('fh-total-power-payment', fhTotalPowerPayment)
-
-  // Update other values
   updateValue('variable-charge', variableCharge)
   updateValueNonDec('total-power-used', totalKwh)
 }
@@ -86,13 +74,6 @@ document
   .addEventListener('click', clearPowerInputs)
 
 ///////// WATER CALCULATIONS ////////////////////////////////////////////////////////////////////
-// Function to update all elements with the same data-key
-function updateWaterValue(key, value) {
-  const elements = document.querySelectorAll(`[data-key="${key}"]`)
-  elements.forEach((element) => {
-    element.textContent = value ? value.toFixed(2) : '__'
-  })
-}
 
 // Function to clear all input fields and reset results
 function clearWaterInputs() {
@@ -127,12 +108,6 @@ function calculateWater() {
   // Calculate front house water usage
   const frontHouseWater = totalWater - backHouseWater
 
-  // Ensure front house water usage is not negative
-  if (frontHouseWater < 0) {
-    alert('Back house water use cannot exceed total water use.')
-    return
-  }
-
   // Back house calculations
   const bhWaterRate = backHouseWater * waterRate
   const bhWastePercent = (backHouseWater / totalWater) * 100
@@ -146,20 +121,20 @@ function calculateWater() {
   const fhTotalWaterPayment = fhWaterRate + fhWasteRate
 
   // Update output values
-  updateWaterValue('total-water', totalWater)
-  updateWaterValue('total-waste-water', totalWastewater)
-  updateWaterValue('water-rate', waterRate)
-  updateWaterValue('waste-water-rate', wastewaterRate)
-  updateWaterValue('bh-water', backHouseWater)
-  updateWaterValue('fh-water', frontHouseWater)
-  updateWaterValue('bh-water-rate', bhWaterRate)
-  updateWaterValue('bh-waste-percent', bhWastePercent)
-  updateWaterValue('bh-waste-rate', bhWasteRate)
-  updateWaterValue('bh-total-water-payment', bhTotalWaterPayment)
-  updateWaterValue('fh-water-rate', fhWaterRate)
-  updateWaterValue('fh-waste-percent', fhWastePercent)
-  updateWaterValue('fh-waste-rate', fhWasteRate)
-  updateWaterValue('fh-total-water-payment', fhTotalWaterPayment)
+  updateValue('total-water', totalWater)
+  updateValue('total-waste-water', totalWastewater)
+  updateValue('water-rate', waterRate)
+  updateValue('waste-water-rate', wastewaterRate)
+  updateValueNonDec('bh-water', backHouseWater)
+  updateValueNonDec('fh-water', frontHouseWater)
+  updateValue('bh-water-rate', bhWaterRate)
+  updateValue('bh-waste-percent', bhWastePercent)
+  updateValue('bh-waste-rate', bhWasteRate)
+  updateValue('bh-total-water-payment', bhTotalWaterPayment)
+  updateValue('fh-water-rate', fhWaterRate)
+  updateValue('fh-waste-percent', fhWastePercent)
+  updateValue('fh-waste-rate', fhWasteRate)
+  updateValue('fh-total-water-payment', fhTotalWaterPayment)
 }
 
 // Event listeners
