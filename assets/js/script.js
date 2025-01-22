@@ -7,6 +7,13 @@ function updateValue(key, value) {
   })
 }
 
+function updateValueNonDec(key, value) {
+  const elements = document.querySelectorAll(`[data-key="${key}"]`)
+  elements.forEach((element) => {
+    element.textContent = value ? Math.round(value) : '__'
+  })
+}
+
 // Function to clear all input fields and reset results
 function clearPowerInputs() {
   const powerInputs = document.querySelectorAll(
@@ -50,7 +57,7 @@ function calculatePower() {
   // Back house calculations
   const bhVariableCharge = variableCharge * (backHouseKwh / totalKwh)
   updateValue('bh-variable-charge', bhVariableCharge)
-  updateValue('bh-power', backHouseKwh)
+  updateValueNonDec('bh-power', backHouseKwh)
   const bhGst = (fixedChargeHalved + bhVariableCharge) * 0.15
   updateValue('bh-gst', bhGst)
   const bhTotalPowerPayment = fixedChargeHalved + bhVariableCharge + bhGst
@@ -59,7 +66,7 @@ function calculatePower() {
   // Front house calculations
   const fhVariableCharge = variableCharge * (frontHouseKwh / totalKwh)
   updateValue('fh-variable-charge', fhVariableCharge)
-  updateValue('fh-power', frontHouseKwh)
+  updateValueNonDec('fh-power', frontHouseKwh)
   const fhGst = (fixedChargeHalved + fhVariableCharge) * 0.15
   updateValue('fh-gst', fhGst)
   const fhTotalPowerPayment = fixedChargeHalved + fhVariableCharge + fhGst
@@ -67,7 +74,7 @@ function calculatePower() {
 
   // Update other values
   updateValue('variable-charge', variableCharge)
-  updateValue('total-power-used', totalKwh)
+  updateValueNonDec('total-power-used', totalKwh)
 }
 
 // Event listeners
