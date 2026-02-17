@@ -38,19 +38,22 @@ function calculatePower() {
     return
   }
 
-  // Fixed charge halved
-  const fixedChargeHalved = fixedCharge / 2
-  updateValue('fixed-charge-halved', fixedChargeHalved)
+  // Fixed charge split 3 ways - 1/3 back house, 2/3 front house
+  const fixedChargeSplit = fixedCharge / 3
+  const bhFixedCharge = fixedChargeSplit
+  const fhFixedCharge = fixedChargeSplit * 2
+  updateValue('fixed-charge-bh', bhFixedCharge)
+  updateValue('fixed-charge-fh', fhFixedCharge)
 
   // Back house calculations
   const bhVariableCharge = variableCharge * (backHouseKwh / totalKwh)
-  const bhGst = (fixedChargeHalved + bhVariableCharge) * 0.15
-  const bhTotalPowerPayment = fixedChargeHalved + bhVariableCharge + bhGst
+  const bhGst = (bhFixedCharge + bhVariableCharge) * 0.15
+  const bhTotalPowerPayment = bhFixedCharge + bhVariableCharge + bhGst
 
   // Front house calculations
   const fhVariableCharge = variableCharge * (frontHouseKwh / totalKwh)
-  const fhGst = (fixedChargeHalved + fhVariableCharge) * 0.15
-  const fhTotalPowerPayment = fixedChargeHalved + fhVariableCharge + fhGst
+  const fhGst = (fhFixedCharge + fhVariableCharge) * 0.15
+  const fhTotalPowerPayment = fhFixedCharge + fhVariableCharge + fhGst
 
   // Update all values
   updateValue('bh-variable-charge', bhVariableCharge)
