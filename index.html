@@ -17,12 +17,10 @@
       <!-- Input for power -->
       <div class="m-6 rounded bg-stone-950/30 p-10 sm:px-16 sm:py-8">
         <h2><u>Power Calculations</u></h2>
-        <label for="fixed-daily-charge" class="mr-6"
-          >Fixed daily charge total:</label
-        >
+        <label for="fixed-charge" class="mr-6">Fixed daily charge total:</label>
         <input
           type="number"
-          id="fixed-daily-charge"
+          id="fixed-charge"
           class="w-[200px] rounded border p-1 text-neutral-900"
           placeholder="Enter fixed charge"
         />
@@ -105,7 +103,7 @@
         <br />
 
         <label for="water-unit-rate" class="mr-6"
-          >Unit rate for water $/kL:</label
+          >Unit rate for water &#36;/kL:</label
         >
         <input
           type="number"
@@ -117,7 +115,7 @@
         <br />
 
         <label for="wastewater-unit-rate" class="mr-6"
-          >Unit rate for wastewater $/kL:</label
+          >Unit rate for wastewater &#36;/kL:</label
         >
         <input
           type="number"
@@ -174,13 +172,11 @@
           <br />
 
           <p>
-            Fixed daily charge total comes to $<span
-              data-key="fixed-daily-charge"
-              >__</span
-            >
+            Fixed daily charge is halved between the front and back, so they
+            each come to &#36;<span data-key="fixed-charge-halved">__</span>
           </p>
           <p>
-            Variable charge was discounted and the total is $<span
+            Variable charge was discounted and the total is &#36;<span
               data-key="variable-charge"
               >__</span
             >
@@ -188,13 +184,11 @@
           <br />
 
           <p>
-            Back house would pay
-            <span data-key="bh-power-percent">__</span>&#37; of the fixed
-            working out to be
-            <u>$<span data-key="fixed-charge-bh">__</span></u>
+            Back house would pay a fixed of
+            <u>&#36;<span data-key="fixed-charge-halved">__</span></u>
           </p>
           <p>
-            Back house variable charge with discount applied is $<span
+            Back house variable charge with discount applied is &#36;<span
               data-key="variable-charge"
               >__</span
             >
@@ -202,27 +196,26 @@
               data-key="total-power-used"
               >__</span
             >kWh)&#37; =
-            <u>$<span data-key="bh-variable-charge">__</span></u>
+            <u>&#36;<span data-key="bh-variable-charge">__</span></u>
           </p>
           <p>
-            Back house GST is ($<span data-key="fixed-charge-bh">__</span
-            >+$<span data-key="bh-variable-charge">__</span>) x 15&#37; =
-            <u>$<span data-key="bh-gst">__</span></u>
+            Back house GST is (&#36;<span data-key="fixed-charge-halved"
+              >__</span
+            >+&#36;<span data-key="bh-variable-charge">__</span>) x 15&#37; =
+            <u>&#36;<span data-key="bh-gst">__</span></u>
           </p>
           <p>
             Total for back house is
-            <u>$<span data-key="bh-total-power-payment">__</span></u>
+            <u>&#36;<span data-key="bh-total-power-payment">__</span></u>
           </p>
           <br />
 
           <p>
-            Front house would pay
-            <span data-key="fh-power-percent">__</span>&#37; of the fixed
-            working out to be
-            <u>$<span data-key="fixed-charge-fh">__</span></u>
+            Front house would pay a fixed of
+            <u>&#36;<span data-key="fixed-charge-halved">__</span></u>
           </p>
           <p>
-            Front house variable charge with discount applied is $<span
+            Front house variable charge with discount applied is &#36;<span
               data-key="variable-charge"
               >__</span
             >
@@ -230,16 +223,17 @@
               data-key="total-power-used"
               >__</span
             >kWh)&#37; =
-            <u>$<span data-key="fh-variable-charge">__</span></u>
+            <u>&#36;<span data-key="fh-variable-charge">__</span></u>
           </p>
           <p id="front-house-gst-result">
-            Front house GST is ($<span data-key="fixed-charge-fh">__</span
-            >+$<span data-key="fh-variable-charge">__</span>) x 15&#37; =
-            <u>$<span data-key="fh-gst">__</span></u>
+            Front house GST is (&#36;<span data-key="fixed-charge-halved"
+              >__</span
+            >+&#36;<span data-key="fh-variable-charge">__</span>) x 15&#37; =
+            <u>&#36;<span data-key="fh-gst">__</span></u>
           </p>
           <p id="front-house-total-power">
             Total for front house is
-            <u> $<span data-key="fh-total-power-payment">__</span></u>
+            <u> &#36;<span data-key="fh-total-power-payment">__</span></u>
           </p>
           <br />
           <p>Thank You</p>
@@ -270,39 +264,39 @@
 
           <p>
             Back house water <span data-key="bh-water">__</span>kL rate at
-            $<span data-key="water-rate">__</span>/kL =
-            <u>$<span data-key="bh-water-rate">__</span></u>
+            &#36;<span data-key="water-rate">__</span>/kL =
+            <u>&#36;<span data-key="bh-water-rate">__</span></u>
           </p>
           <p>
             Back house wastewater is
             <span data-key="bh-waste-percent">__</span>&#37; of
-            <span data-key="total-waste-water">__</span>kL at rate of $<span
+            <span data-key="total-waste-water">__</span>kL at rate of &#36;<span
               data-key="waste-water-rate"
               >__</span
-            >/kL = <u>$<span data-key="bh-waste-rate">__</span></u>
+            >/kL = <u>&#36;<span data-key="bh-waste-rate">__</span></u>
           </p>
           <p>
             Total Back house would pay is
-            <u>$<span data-key="bh-total-water-payment">__</span></u>
+            <u>&#36;<span data-key="bh-total-water-payment">__</span></u>
           </p>
           <br />
 
           <p>
             Front house water <span data-key="fh-water">__</span>kL rate at
-            $<span data-key="water-rate">__</span>/kL =
-            <u>$<span data-key="fh-water-rate">__</span></u>
+            &#36;<span data-key="water-rate">__</span>/kL =
+            <u>&#36;<span data-key="fh-water-rate">__</span></u>
           </p>
           <p>
             Front house wastewater is
             <span data-key="fh-waste-percent">__</span>&#37; of
-            <span data-key="total-waste-water">__</span>kL at rate of $<span
+            <span data-key="total-waste-water">__</span>kL at rate of &#36;<span
               data-key="waste-water-rate"
               >__</span
-            >/kL = <u>$<span data-key="fh-waste-rate">__</span></u>
+            >/kL = <u>&#36;<span data-key="fh-waste-rate">__</span></u>
           </p>
           <p>
             Total Front house would pay is
-            <u>$<span data-key="fh-total-water-payment">__</span></u>
+            <u>&#36;<span data-key="fh-total-water-payment">__</span></u>
           </p>
           <br />
           <p>Thank You</p>

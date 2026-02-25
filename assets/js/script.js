@@ -5,7 +5,7 @@ import { updateValue, updateValueNonDec } from './shared.js'
 // Function to clear all input fields and reset results
 function clearPowerInputs() {
   const powerInputs = document.querySelectorAll(
-    '#fixed-daily-charge, #variable-charge, #total-kwh, #back-house-kwh',
+    '#fixed-charge, #variable-charge, #total-kwh, #back-house-kwh',
   )
   powerInputs.forEach((input) => {
     input.value = '' // Clear input value
@@ -21,8 +21,8 @@ function clearPowerInputs() {
 // Function to handle power calculations
 function calculatePower() {
   // Get input values
-  const fixedDailyCharge =
-    parseFloat(document.getElementById('fixed-daily-charge').value) || 0
+  const fixedCharge =
+    parseFloat(document.getElementById('fixed-charge').value) || 0
   const variableCharge =
     parseFloat(document.getElementById('variable-charge').value) || 0
   const totalKwh = parseFloat(document.getElementById('total-kwh').value) || 0
@@ -38,40 +38,31 @@ function calculatePower() {
     return
   }
 
-  // Calculate usage percentages (for display)
-  const frontHousePercent = (frontHouseKwh / totalKwh) * 100
-  const backHousePercent = (backHouseKwh / totalKwh) * 100
-
-  // Fixed charge split based on usage percentage
-  const bhFixedCharge = fixedDailyCharge * (backHousePercent / 100)
-  const fhFixedCharge = fixedDailyCharge * (frontHousePercent / 100)
+  // Fixed charge halved
+  const fixedChargeHalved = fixedCharge / 2
+  updateValue('fixed-charge-halved', fixedChargeHalved)
 
   // Back house calculations
-  const bhVariableCharge = variableCharge * (backHousePercent / 100)
-  const bhGst = (bhFixedCharge + bhVariableCharge) * 0.15
-  const bhTotalPowerPayment = bhFixedCharge + bhVariableCharge + bhGst
+  const bhVariableCharge = variableCharge * (backHouseKwh / totalKwh)
+  const bhGst = (fixedChargeHalved + bhVariableCharge) * 0.15
+  const bhTotalPowerPayment = fixedChargeHalved + bhVariableCharge + bhGst
 
   // Front house calculations
-  const fhVariableCharge = variableCharge * (frontHousePercent / 100)
-  const fhGst = (fhFixedCharge + fhVariableCharge) * 0.15
-  const fhTotalPowerPayment = fhFixedCharge + fhVariableCharge + fhGst
+  const fhVariableCharge = variableCharge * (frontHouseKwh / totalKwh)
+  const fhGst = (fixedChargeHalved + fhVariableCharge) * 0.15
+  const fhTotalPowerPayment = fixedChargeHalved + fhVariableCharge + fhGst
 
   // Update all values
-  updateValue('fixed-daily-charge', fixedDailyCharge)
-  updateValueNonDec('total-power-used', totalKwh)
-  updateValue('variable-charge', variableCharge)
-  updateValue('fixed-charge-bh', bhFixedCharge)
-  updateValue('fixed-charge-fh', fhFixedCharge)
-  updateValue('bh-power-percent', backHousePercent)
   updateValue('bh-variable-charge', bhVariableCharge)
   updateValueNonDec('bh-power', backHouseKwh)
   updateValue('bh-gst', bhGst)
   updateValue('bh-total-power-payment', bhTotalPowerPayment)
-  updateValue('fh-power-percent', frontHousePercent)
   updateValue('fh-variable-charge', fhVariableCharge)
   updateValueNonDec('fh-power', frontHouseKwh)
   updateValue('fh-gst', fhGst)
   updateValue('fh-total-power-payment', fhTotalPowerPayment)
+  updateValue('variable-charge', variableCharge)
+  updateValueNonDec('total-power-used', totalKwh)
 }
 
 // Event listeners
